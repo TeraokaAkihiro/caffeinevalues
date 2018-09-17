@@ -1,18 +1,18 @@
 <?php
   
-  //if(defined('DATABASE_URL')){
-  //  echo 'defined DATABASE_URL';
-  //  //$heroku_postgresql_url = parse_url(getenv('DATABASE_URL'));
-  //  //define('DB_USER', $heroku_postgresql_url['user']);
-  //  //define('DB_PASSWD', $heroku_postgresql_url['pass']);
-  //  //define('DSN', sprintf('pgsql:host=%s;dbname=%s',
-  //  //  $heroku_postgresql_url['host'],
-  //  //  substr($heroku_postgresql_url['path'], 1)
-  //  //));
-  //}else{
-  //  // local database config
-  //  require_once("./conf/db_conf.php");
-  //}
+  if(defined('DATABASE_URL')){
+    echo 'defined DATABASE_URL <br>';
+    //$heroku_postgresql_url = parse_url(getenv('DATABASE_URL'));
+    //define('DB_USER', $heroku_postgresql_url['user']);
+    //define('DB_PASSWD', $heroku_postgresql_url['pass']);
+    //define('DSN', sprintf('pgsql:host=%s;dbname=%s',
+    //  $heroku_postgresql_url['host'],
+    //  substr($heroku_postgresql_url['path'], 1)
+    //));
+  }else{
+    // local database config
+    require_once("./conf/db_conf.php");
+  }
   //try{
   //  $pdo = new PDO(DSN, DB_USER, DB_PASSWD);
   //  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
