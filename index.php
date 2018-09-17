@@ -1,11 +1,14 @@
 <?php
   
   if(defined('DATABASE_URL')){
-    $heroku_postgresql_url = parse_url(getenv('DATABASE_URL'));
-    define('DB_USER', $heroku_postgresql_url['user']);
-    define('DB_PASSWD', $heroku_postgresql_url['pass']);
-    define('DB_NAME', substr($heroku_postgresql_url['path'], 1));
-    define('DSN', sprintf('pgsql:host=%s;dbname=%s', $heroku_postgresql_url['host'], DB_NAME));
+    echo 'defined DATABASE_URL';
+    //$heroku_postgresql_url = parse_url(getenv('DATABASE_URL'));
+    //define('DB_USER', $heroku_postgresql_url['user']);
+    //define('DB_PASSWD', $heroku_postgresql_url['pass']);
+    //define('DSN', sprintf('pgsql:host=%s;dbname=%s',
+    //  $heroku_postgresql_url['host'],
+    //  substr($heroku_postgresql_url['path'], 1)
+    //));
   }else{
     // local database config
     require_once("./conf/db_conf.php");
@@ -18,7 +21,7 @@
     echo 'Connection Error : ' . $e->getMessage() . '<br>';
   }
   var_dump(phpversion());
-  var_dump($pdo->getAttribute(PDO::ATTR_SERVER_VERSION));
+  //var_dump($pdo->getAttribute(PDO::ATTR_SERVER_VERSION));
 ?>
 <!DOCTYPE html>
 <html lang="jp">
