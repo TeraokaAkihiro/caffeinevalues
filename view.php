@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/dataTables.bootstrap4.min.css">
 
 </head>
 <body class="bg-light">
@@ -15,21 +16,18 @@
       <div class="row">
         <div class="col-lg-12 text-center"> 
           <div id="drinks" class="mt-3">
-
-            <div class="input-group mb-3">
-              <input type="text" class="search form-control" placeholder="search word" aria-label="search word">
-              <div class="input-group-append">
-                <button class="sort btn btn-outline-secondary" type="button" data-sort="drink_name">Sort</button>
-              </div>
-            </div>
             
-            <table class="table">
+            <table class="table" id="drink-table">
               <thead class="thead-light">
                 <tr>
-                  <th style="width: 50%" class="text-left">名前</th>
-                  <th style="width: 20%">内容量<br>(ml)</th>
-                  <th style="width: 15%">カフェイン量<br>(mg)</th>
-                  <th style="width: 15%">(mg &frasl; 100ml)</th>
+                  <th style="width: 50%" class="text-left">名前
+                  <i class="fa fa-sort float-right" aria-hidden="true"></i></th>
+                  <th style="width: 20%">内容量<br>(ml)
+                  <i class="fa fa-sort float-right" aria-hidden="true"></i></th>
+                  <th style="width: 15%">カフェイン量<br>(mg)
+                  <i class="fa fa-sort float-right" aria-hidden="true"></i></th>
+                  <th style="width: 15%">(mg &frasl; 100ml)
+                  <i class="fa fa-sort float-right" aria-hidden="true"></i></th>
                 </tr>
               </thead>
               <tbody class="list">
@@ -51,7 +49,7 @@
                 <?php } ?>
               </tbody>
             </table>
-            
+
           </div>
         </div>
       </div>
@@ -59,14 +57,14 @@
     </main>
 
     <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/list.min.js"></script>
     <script>
-      var options = {
-        valueNames: [ 'drink_name', 'caffeine_mg', 'drink_ml', 'mg_per_100ml' ]
-      };
-      var drinkList = new List('drinks', options);
+      $(document).ready(function () {
+        $('#drink-table').DataTable();
+      });
     </script>
 </body>
 </html>
